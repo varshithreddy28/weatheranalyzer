@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheet/error.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <title>Error!</title>
+    </head>
+
+    <body>
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-md-6 pull-right"> <img src="https://i.imgur.com/1dJs49H.png" width="400" class="mt-2">
+                </div>
+                <div class="col-md-6">
+                    <div class="pull-left">
+                        <h1 class="not-found">404</h1>
+                        <h3>Please enter a valid Place (OR) Check the Spelling...</h3>
+
+                        <form action="/weather/search" method="get">
+                            <div class="input-group mt-3 mb-3 d-flex justify-content-center">
+                                <input type="text" class="form-control" placeholder="Enter City Name"
+                                    aria-label="Username" aria-describedby="basic-addon1" name="place" id="input"
+                                    required="require">
+
+                                <div class="input-group-append">
+                                    <button id="submit" class="btn input-group-text"><i class="fas fa-search"
+                                            type="submit"></i></button>
+                                    <!-- <span class="" id="basic-addon2">@example.com</span>-->
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="text-center mt-4 mb-5">
+                            <button class="btn btn-success send px-3">
+                                <i class="fa fa-long-arrow-left mr-1"></i>
+                                <a href="/" class="home">Home page</a>
+                            </button>
+                            <button class="btn btn-success send ml-2 px-3">
+                                <i class="fa fa-phone mr-1"></i>
+                                <a href="mailto:varshithreddybobbili28@gmail.com?subject=Problem In Weather App..."
+                                    class="home">Contact us</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+
+    </body>
+
+</html>

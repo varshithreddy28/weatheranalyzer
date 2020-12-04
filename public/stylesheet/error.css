@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    display: grid;
+    place-items: center;
+    font-family: 'Manrope', sans-serif;
+    background: #FF5252;
+    color: #fff
+}
+
+.not-found {
+    font-size: 220px;
+    font-weight: 700
+}
+
+#search {
+    -webkit-box-align: center;
+    align-items: center;
+    background: #dc3545;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin: 0.5em 0;
+    padding: 0.5em 0.5em 0.5em 1em;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s
+}
+
+#search:hover,
+#search:focus {
+    background: #dc3545
+}
+
+#search button,
+#search input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    outline: 0
+}
+
+#button i {
+    font-size: 23px
+}
+
+#search button {
+    cursor: pointer;
+    padding: 0 0.25em
+}
+
+#search input {
+    -webkit-box-flex: 1;
+    flex: 1;
+    font-weight: 500;
+    font-size: 23px
+}
+
+#search input::placeholder {
+    color: #fff
+}
+
+.send {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 1px;
+    box-shadow: 2px 3px #dc3545
+}
+
+.send:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 1px;
+    box-shadow: 2px 3px #dc3545
+}
+.fa-long-arrow-left{
+    color: white;
+}
+.home{
+    color: white;
+}

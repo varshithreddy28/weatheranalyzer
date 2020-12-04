@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheet/result.css">
+        <link rel="stylesheet" href="/stylesheet/forecast.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@700&family=Quicksand&family=Zilla+Slab:ital@1&display=swap"
+            rel="stylesheet">
+        <title>Weather Data</title>
+    </head>
+
+    <body>
+        <div class="row data">
+            <div class="card col-sm-7 col-md-8 col-lg-7 main">
+                <div class="card-body">
+                    <img src="<%= weatherData.icon %>" class="icon" alt="Icon of the currewnt weather!">
+                    <div id="place">
+                        <span class="temp"><%= weatherData.temp %></span>
+                        <span class="temp" style="font-family: 'Big Shoulders Inline Text', cursive">&#8451;</span>
+                        <br>
+                        <!-- </div>
+                    <div id="city"> -->
+                        <span id="place1"><%= weatherData.city %>,</span>
+                        <span id="place2"> <%= weatherData.country %></span> </div>
+                    <br><br><br>
+                    <div id="middle">
+                        <br>
+                        <h3 id="discription"><%= weatherData.discription %></h4>
+                            <span id="date">Date : <%= weatherData.date %></span>
+                    </div>
+                    <div id="lowerleft">
+                        <span>Minimum temperature : <%= weatherData.mintemp %></span><span>&#8451;</span>
+                        <br>
+                        <span>Maximum temperature : <%= weatherData.maxtemp %></span><span>&#8451;</span>
+                        <br>
+                        <span>Humidity : <%= weatherData.humidity %>%</span>
+                    </div>
+                    <div id="lowerright">
+                        <span>SunSet : <%= weatherData.sunSettime %></span>
+                        <br>
+                        <span>SunRise : <%= weatherData.sunRisetime %></span>
+                        <br>
+                        <span>WindSpeed : <%= weatherData.windSpeed %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 cards">
+                    <div class="card forecast" style="width: 18rem;">
+                        <div>
+                            <h3 class="day"> <%= weatherData.day1[1] %> </h3>
+                            <img src="<%= weatherData.day1[2] %>" class="icon_" alt="" srcset="">
+                            <br>
+                        </div>
+                        <h3 class="temp"> <%= weatherData.day1[0] %> &#8451;</h3>
+                        <span class="discription"><%= weatherData.day1[3] %></span>
+                    </div>
+                </div>
+
+                <div class="col-md-5 cards">
+                    <div class="card forecast" style="width: 18rem;">
+                        <div>
+                            <h3 class="day"> <%= weatherData.day2[1] %> </h3>
+                            <img src="<%= weatherData.day2[2] %>" class="icon_" alt="" srcset="">
+                            <br>
+                        </div>
+                        <h3 class="temp"> <%= weatherData.day2[0] %> &#8451;</h3>
+                        <span class="discription"><%= weatherData.day2[3] %></span>
+                    </div>
+                </div>
+                <div class="col-md-5 cards">
+                    <div class="card forecast" style="width: 18rem;">
+                        <div>
+                            <h3 class="day"> <%= weatherData.day3[1] %> </h3>
+                            <img src="<%= weatherData.day3[2] %>" class="icon_" alt="" srcset="">
+                            <br>
+                        </div>
+                        <h3 class="temp"> <%= weatherData.day3[0] %> &#8451;</h3>
+                        <span class="discription"><%= weatherData.day3[3] %></span>
+                    </div>
+                </div>
+                <div class="col-md-5 cards">
+                    <div class="card forecast" style="width: 18rem;">
+                        <div>
+                            <h3 class="day"> <%= weatherData.day4[1] %> </h3>
+                            <img src="<%= weatherData.day4[2] %>" class="icon_" alt="" srcset="">
+                            <br>
+                        </div>
+                        <h3 class="temp"> <%= weatherData.day4[0] %> &#8451;</h3>
+                        <span class="discription"><%= weatherData.day4[3] %></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <h1 class="headding">Near by Cities : </h1>
+                </div>
+                <% for(let i=0;i<weatherData.nearbyPlaces.length;i++){%>
+                <div class="col-md-4 places">
+                    <div class="card near" style="width: 90%;">
+                        <div>
+                            <h3 class="lowerleft" id="nameplace"> <%= weatherData.nearbyPlaces[i][0] %> </h3>
+                            <h3 class="lowerleft" id="tempplace"> <%= weatherData.nearbyPlaces[i][1] %> &#8451;
+                            </h3>
+                            <span class="lowerleft" id="discriptionplace"><%= weatherData.nearbyPlaces[i][2] %></span>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="contact row">
+            <h3 id="bottomleft">Contact Us : </h3>
+            <a href="mailto:varshithreddybobbili28@gmail.com?subject=From Weather App..."><i
+                    class="fas fa-envelope"></i></a>
+            <a href="https://github.com/varshithreddy28"><i class="fab fa-github"></i></a>
+        </div>
+        <!--bootstrap-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

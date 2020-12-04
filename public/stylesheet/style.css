@@ -1,0 +1,49 @@
+h1{
+    color: blue;
+}
+#input{
+    height: 3.5rem;
+    border-right: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+.container{
+    display: flex; 
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    margin-top: 35vh;
+}
+#submit{
+    font-size: 1.8rem;
+    background:white;
+    border-left: none;
+    outline: none;
+}
+.content{
+    background: url("search.jpg");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* to take full length */
+    background-size: cover;
+    /* to fit excatly in center */
+    background-position: 50% 50%;
+    /*to not repeat in background*/
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+#headding{
+    font-size: 3.5em;
+    font-family: 'Texturina', serif;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    padding-bottom: 1rem;
+}
