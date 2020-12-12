@@ -1,2 +1,2 @@
 # Weather Analyzer
-The weather Analyzer tells us the current weather data, four days forecast, Weather condition of near by cities
+<h3>This is an WebApplication which gives the Weather Data</h3>
