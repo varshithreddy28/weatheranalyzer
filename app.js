@@ -3,7 +3,6 @@ const axios = require('axios');
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-//const apiKey = 6ad14aac7f072b01c11b4639b40c2428;
 
 
 let monday = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -36,7 +35,6 @@ let day = function (y, m, d) {
         monday[1] = 28;
     }
     //console.log(monday);
-
     let a = month(m);
     var mon = a[0];
     let total = a[1];
@@ -65,28 +63,31 @@ let day = function (y, m, d) {
     return dm
 }
 
-
 let datas = (c, list) => {
     let all = []
+    console.table(c)
+    // console.log(list[38])
     var fore = []
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < list.length; j++) {
-            let x = list[j].dt_txt.slice(0, 10)
+            let x = list[j].dt_txt
             let ye = parseInt(x.slice(0, 4))
             let mo = parseInt(x.slice(5, 7))
             let da = parseInt(x.slice(8, 10))
+            let time = parseInt(x.slice(11, 13))
             //console.log(ye,mo,da,c[i])
-            if (ye == c[i][0] && mo == c[i][1] && da == c[i][2]) {
+            if (ye == c[i][0] && mo == c[i][1] && da == c[i][2] && time == 12) {
                 all.push(list[j])
+                // console.log(i)
+                break;
             }
         }
         fore.push(all)
         all = []
     }
+    console.log(fore)
     return fore
 }
-
-
 
 async function getUser(apiKey, search) {
     try {
@@ -144,43 +145,22 @@ app.get('/weather/search', async (req, res) => {
     const y = await datas(c, list)
     const forecast = []
     for (let i = 1; i < 5; i++) {
-        forecast.push(y[i][3])
+        forecast.push(y[i][0])
     }
-    const temp_1 = Math.floor(forecast[0].main.feels_like - 273.15);
-    const date_1 = await timeConversion(forecast[0].dt);
-    const day_1 = date_1.slice(0, 3)
-    const icon_d1 = forecast[0].weather[0].icon;
-    const icon_1 = `http://openweathermap.org/img/wn/${icon_d1}@2x.png`
-    const discription_1 = forecast[0].weather[0].description;
 
-    const day1 = [temp_1, day_1, icon_1, discription_1]
+    let data_day = []
 
-    const temp_2 = Math.floor(forecast[1].main.feels_like - 273.15);
-    const date_2 = await timeConversion(forecast[1].dt);
-    const day_2 = date_2.slice(0, 3)
-    const icon_d2 = forecast[1].weather[0].icon;
-    const icon_2 = `http://openweathermap.org/img/wn/${icon_d2}@2x.png`
-    const discription_2 = forecast[1].weather[0].description;
-
-    const day2 = [temp_2, day_2, icon_2, discription_2]
-
-    const temp_3 = Math.floor(forecast[2].main.feels_like - 273.15);
-    const date_3 = await timeConversion(forecast[2].dt);
-    const day_3 = date_3.slice(0, 3)
-    const icon_d3 = forecast[2].weather[0].icon;
-    const icon_3 = `http://openweathermap.org/img/wn/${icon_d3}@2x.png`
-    const discription_3 = forecast[2].weather[0].description;
-
-    const day3 = [temp_3, day_3, icon_3, discription_3]
-
-    const temp_4 = Math.floor(forecast[3].main.feels_like - 273.15);
-    const date_4 = await timeConversion(forecast[3].dt);
-    const day_4 = date_4.slice(0, 3)
-    const icon_d4 = forecast[3].weather[0].icon;
-    const icon_4 = `http://openweathermap.org/img/wn/${icon_d4}@2x.png`
-    const discription_4 = forecast[3].weather[0].description;
-
-    const day4 = [temp_4, day_4, icon_4, discription_4]
+    for (let i = 0; i < 4; i++) {
+        const data = {
+            temp: Math.floor(forecast[i].main.feels_like - 273.15),
+            date: await timeConversion(forecast[i].dt),
+            day: date.slice(0, 3),
+            icon_d: forecast[i].weather[0].icon,
+            icon: `http://openweathermap.org/img/wn/${forecast[i].weather[0].icon}@2x.png`,
+            discription: forecast[i].weather[0].description,
+        }
+        data_day.push(data)
+    }
 
     const result2 = results[2]
     const data_2 = result2.data
@@ -215,10 +195,7 @@ app.get('/weather/search', async (req, res) => {
         humidity: humidity,
         discription: discription,
         icon: icon_Url,
-        day1: day1,
-        day2: day2,
-        day3: day3,
-        day4: day4,
+        data_day: data_day,
         nearbyPlaces: near
     }
     res.render('home', { weatherData: weatherData });
