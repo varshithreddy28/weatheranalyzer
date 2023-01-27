@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "axios": "^0.21.0",
     "ejs": "^3.1.5",
